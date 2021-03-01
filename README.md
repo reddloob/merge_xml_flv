@@ -1,6 +1,7 @@
 # merge_xml_flv
 
 一个用于拼接弹幕姬（https://github.com/Bililive/BililiveRecorder） 录制的视频、弹幕的工具
+
 用法：
 
 python merge.py PATH
