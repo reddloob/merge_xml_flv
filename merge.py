@@ -38,6 +38,10 @@ def mergexml(xmlfile_list):
         f_input.close()
     
     f_output.close()
+    
+    xmlfilename=xmlfile_list[0][:xmlfile_list[0].rindex('.')]+'-merge.xml'
+    assfilename=xmlfilename[:xmlfilename.rindex('.')]+'.ass'
+    os.system("DanmakuFactory -i xmlfilename -o assfilename")
 
 
 def mergevideo(flvfile_list):
