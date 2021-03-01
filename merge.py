@@ -5,8 +5,11 @@ from natsort import natsorted
 from ffmpy import FFmpeg
 
 def mergexml(xmlfile_list):
-
+    
     if len(xmlfile_list)==1:
+        xmlfilename=xmlfile_list[0][:xmlfile_list[0].rindex('.')]+'-merge.xml'
+        assfilename=xmlfilename[:xmlfilename.rindex('.')]+'.ass'
+        os.system("DanmakuFactory -i %s -o %s" % (xmlfilename,assfilename))
         return
     
     f_output=open(xmlfile_list[0][:xmlfile_list[0].rindex('.')]+'-merge.xml','a+')
@@ -42,6 +45,7 @@ def mergexml(xmlfile_list):
     xmlfilename=xmlfile_list[0][:xmlfile_list[0].rindex('.')]+'-merge.xml'
     assfilename=xmlfilename[:xmlfilename.rindex('.')]+'.ass'
     os.system("DanmakuFactory -i %s -o %s" % (xmlfilename,assfilename))
+    
 
 
 def mergevideo(flvfile_list):
