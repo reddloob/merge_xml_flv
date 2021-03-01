@@ -41,7 +41,7 @@ def mergexml(xmlfile_list):
     
     xmlfilename=xmlfile_list[0][:xmlfile_list[0].rindex('.')]+'-merge.xml'
     assfilename=xmlfilename[:xmlfilename.rindex('.')]+'.ass'
-    os.system("DanmakuFactory -i xmlfilename -o assfilename")
+    os.system("DanmakuFactory -i %s -o %s" % (xmlfilename,assfilename))
 
 
 def mergevideo(flvfile_list):
