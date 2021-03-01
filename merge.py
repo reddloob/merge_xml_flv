@@ -55,16 +55,16 @@ def mergevideo(flvfile_list):
         tsfile=flvfile[:flvfile.rindex('.')]+'.ts'
         tsfile_list.append(tsfile)
         FFmpeg(inputs={flvfile: None},
-               outputs={tsfile: '-c copy -bsf:v h264_mp4toannexb -f mpegts'}).run()
+               outputs={tsfile: '-y -c copy -bsf:v h264_mp4toannexb -f mpegts'}).run()
 
     mp4file = tsfile_list[0][:tsfile_list[0].rindex('.')]+'.mp4'
 
     if len(tsfile_list)==1:
         FFmpeg(inputs={tsfile_list[0]: None},
-               outputs={mp4file: '-c copy -absf aac_adtstoasc'}).run()
+               outputs={mp4file: '-y -c copy -absf aac_adtstoasc'}).run()
     else:
         FFmpeg(inputs={'concat:' + '|'.join(tsfile_list): None},
-               outputs={mp4file: '-c copy -absf aac_adtstoasc'}).run()
+               outputs={mp4file: '-y -c copy -absf aac_adtstoasc'}).run()
 
 
 
